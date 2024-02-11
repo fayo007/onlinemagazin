@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 from main import models
 import openpyxl
 from django.http import HttpResponse
-from .models import Product
+# from .models import Product
 
 
 def dashboard(request):
@@ -44,8 +44,6 @@ def category_delete(request, id):
     category = models.Category.objects.get(id=id)
     category.delete()
     return redirect('category_list')
-
-
 
 
 # products

@@ -29,12 +29,12 @@
 				</div>
 				<div class="col-md-6 top-header-left">
 					<div class="cart box_1">
-						<a href="checkout.html">
-							 <div class="total">
-								<span class="simpleCart_total"></span></div>
+						<a href="carts">
+							 {% comment %} <div class="total">
+								<span class="simpleCart_total"></span></div> {% endcomment %}
 								<img src="{% static 'images/cart-1.png' %}" alt="" />
 						</a>
-						<p><a href="javascript:;" class="simpleCart_empty">Empty Cart</a></p>
+						<p><a href="javascript:;" class="simpleCart_empty">Savatcha</a></p>
 						<div class="clearfix"> </div>
 					</div>
 				</div>
@@ -45,7 +45,7 @@
 	<!--top-header-->
 	<!--start-logo-->
 	<div class="logo">
-		<a href="index.html"><h1>Luxury Watches</h1></a>
+		<a href="index.html"><h1>Online Do'kon</h1></a>
 	</div>
 	<!--start-logo-->
 	<!--bottom-header-->
@@ -116,7 +116,7 @@
     {% block content %}
     {% endblock %}
 	<!--information-starts-->
-	<div class="information">
+	{% comment %} <div class="information">
 		<div class="container">
 			<div class="infor-top">
 				<div class="col-md-3 infor-left">
@@ -158,7 +158,7 @@
 				<div class="clearfix"></div>
 			</div>
 		</div>
-	</div>
+	</div> {% endcomment %}
 	<!--information-end-->
 	<!--footer-starts-->
 	<div class="footer">
@@ -170,9 +170,9 @@
 						<input type="submit" value="Subscribe">
 					</form>
 				</div>
-				<div class="col-md-6 footer-right">					
+				{% comment %} <div class="col-md-6 footer-right">					
 					<p>© 2015 Luxury Watches. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
-				</div>
+				</div> {% endcomment %}
 				<div class="clearfix"></div>
 			</div>
 		</div>
