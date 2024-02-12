@@ -3,8 +3,23 @@ from django.contrib.auth.models import User
 from main import models
 import openpyxl
 from django.http import HttpResponse
+import pandas as pd
+from  models import Product
 # from .models import Product
 
+
+def excel_to_database(file_path):
+    df = pd.read_excel(file_path)  # Excel faylni o'qish
+    records = df.to_dict(orient='records')  # Ma'lumotlarni Python obyektiga aylantirish
+    return records
+
+
+from .models import Person
+
+def add_records_to_database(records):
+    for record in records:
+        Product.objects.create(**record)
+        
 
 def dashboard(request):
     categorys = models.Category.objects.all()
@@ -134,3 +149,12 @@ def generate_excel(request):
     wb.save(response)
 
     return response
+
+def upload_excel(request):
+    if request.method == 'POST' and request.FILES['excel_file']:
+        excel_file = request.FILES['excel_file']
+        records = excel_to_database(excel_file)
+        add_records_to_database(records)
+        return HttpResponse('Ma\'lumotlar  bazaga muvaffaqiyatli qo\'shildi.')
+
+    return render(request, 'upload_excel.html')
